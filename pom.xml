@@ -101,7 +101,7 @@
                 </executions>
                 <configuration>
                     <excludes>
-                        <exclude>**/Main.java</exclude>
+                        <exclude>**/Main*</exclude>
                     </excludes>
                 </configuration>
             </plugin>
