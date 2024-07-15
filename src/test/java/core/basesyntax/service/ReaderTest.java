@@ -20,16 +20,18 @@ class ReaderTest {
     }
 
     @Test
-    void getFileRows_emptyFile() {
+    void getFileRows_emptyFile_success() {
         List<String> actual = Reader.readLines(EMPTY_FILE);
         List<String> expected = new ArrayList<>();
+
         assertEquals(expected, actual);
     }
 
     @Test
-    void getFileRows_rightDataFile() {
+    void getFileRows_rightDataFile_success() {
         List<String> actual = Reader.readLines(RIGHT_FORMAT_FILE);
         List<String> expected = new ArrayList<>();
+
         expected.add("b,banana,20");
         expected.add("s,banana,100");
         expected.add("p,banana,13");

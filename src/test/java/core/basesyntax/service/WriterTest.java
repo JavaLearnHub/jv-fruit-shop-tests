@@ -13,14 +13,13 @@ class WriterTest {
     private static final String WRONG_PATH = "src/test/java/core/basesyntax/resources";
 
     @Test
-    void writeToFile_emptyReportProvided() {
+    void writeToFile_emptyReportProvided_success() {
         Writer.writeToFile(WRITER_RESULT_PATH, "");
 
         int actualLinesQuantity = Reader.readLines(WRITER_RESULT_PATH).size();
         int expectedLinesQuantity = 0;
 
         assertEquals(expectedLinesQuantity, actualLinesQuantity);
-
     }
 
     @Test
@@ -29,23 +28,21 @@ class WriterTest {
     }
 
     @Test
-    void writeToFile_rightReportProvided() {
+    void writeToFile_rightReportProvided_success() {
         Writer.writeToFile(WRITER_RESULT_PATH, "fruit,quantity\nbanana,152\napple,90");
 
         List<String> writerResult = Reader.readLines(WRITER_RESULT_PATH);
 
         int actualLinesQuantity = writerResult.size();
         int expectedLinesQuantity = 2;
+        assertEquals(expectedLinesQuantity, actualLinesQuantity);
 
         String actualFirstLine = writerResult.get(0);
         String expectedFirstLine = "banana,152";
+        assertEquals(expectedFirstLine, actualFirstLine);
 
         String actualSecondLine = writerResult.get(1);
         String expectedSecondLine = "apple,90";
-
-        assertEquals(expectedLinesQuantity, actualLinesQuantity);
-        assertEquals(expectedFirstLine, actualFirstLine);
         assertEquals(expectedSecondLine, actualSecondLine);
     }
-
 }

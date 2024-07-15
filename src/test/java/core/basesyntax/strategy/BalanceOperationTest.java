@@ -10,14 +10,16 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class BalanceOperationTest {
 
-    private static final Storage storage = new StorageImpl();
-    private static final BalanceOperation balanceOperation = new BalanceOperation();
+    private final Storage storage = new StorageImpl();
+    private final Operation balanceOperation = new BalanceOperation();
 
     @Test
-    void setBalance_rightDataProvided() {
+    void setBalance_rightDataProvided_success() {
         balanceOperation.operate(new Transaction(BALANCE, "banana", 20), storage);
+
         int actualBalance = storage.getQuantity("banana").orElse(0);
         int expectedBalance = 20;
+
         assertEquals(expectedBalance, actualBalance);
     }
 }

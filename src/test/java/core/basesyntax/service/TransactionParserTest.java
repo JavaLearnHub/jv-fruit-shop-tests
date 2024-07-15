@@ -27,7 +27,7 @@ class TransactionParserTest {
     }
 
     @Test
-    void getTransactionsList_emptyList() {
+    void getTransactionsList_emptyList_success() {
         List<String> storeActivities = new ArrayList<>();
         List<Transaction> actual = TransactionParser.parseToTransaction(storeActivities);
         List<Transaction> expected = new ArrayList<>();
@@ -49,7 +49,7 @@ class TransactionParserTest {
     }
 
     @Test
-    void getTransactionsList_rightDataProvided() {
+    void getTransactionsList_rightDataProvided_success() {
         List<String> storeActivities = new ArrayList<>();
         storeActivities.add("b,banana,20");
         storeActivities.add("s,apple,100");

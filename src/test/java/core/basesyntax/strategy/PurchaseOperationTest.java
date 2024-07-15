@@ -10,16 +10,17 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class PurchaseOperationTest {
 
-    private static final Storage storage = new StorageImpl();
-    private static final PurchaseOperation purchaseOperation = new PurchaseOperation();
+    private final Storage storage = new StorageImpl();
+    private final Operation purchaseOperation = new PurchaseOperation();
 
     @Test
-    void makePurchase_rightDataProvided() {
+    void makePurchase_rightDataProvided_success() {
         storage.saveToStorage("banana", 100);
         purchaseOperation.operate(new Transaction(PURCHASE, "banana", 20), storage);
 
         int actualBalance = storage.getQuantity("banana").orElse(0);
         int expectedBalance = 80;
+
         assertEquals(expectedBalance, actualBalance);
     }
 }

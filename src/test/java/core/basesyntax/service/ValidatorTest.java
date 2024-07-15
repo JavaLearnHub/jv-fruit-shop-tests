@@ -51,11 +51,19 @@ class ValidatorTest {
     }
 
     @Test
-    void validation_rightQuantityProvided_failure() throws WrongQuantityException {
+    void validation_rightQuantityProvided_success() throws WrongQuantityException {
         storage.saveToStorage("banana", 100);
         storage.saveToStorage("apple", 30);
 
-        Validator.validate(new Transaction(PURCHASE, "banana", 50), storage);
-        Validator.validate(new Transaction(PURCHASE, "apple", 10), storage);
+        assertDoesNotThrow(() -> Validator
+                .validate(new Transaction(PURCHASE,
+                        "banana",
+                        50),
+                        storage));
+        assertDoesNotThrow(() -> Validator
+                .validate(new Transaction(PURCHASE,
+                        "apple",
+                        10),
+                        storage));
     }
 }

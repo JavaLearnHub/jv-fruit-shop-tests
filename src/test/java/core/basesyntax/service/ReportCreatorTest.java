@@ -17,8 +17,7 @@ class ReportCreatorTest {
     }
 
     @Test
-    void getReport_emptyFile() {
-
+    void getReport_emptyFile_success() {
         String actual = ReportCreator.createReport(storage);
         String expected = new StringBuilder()
                 .append("fruit,quantity")
@@ -29,7 +28,7 @@ class ReportCreatorTest {
     }
 
     @Test
-    void getReport_rightDataFile() {
+    void getReport_rightDataFile_success() {
         storage.saveToStorage("banana", 152);
         storage.saveToStorage("apple", 90);
 

@@ -37,15 +37,15 @@ class FruitShopServiceTest {
     }
 
     @Test
-    void handleActivity_emptyFileProvided() throws WrongQuantityException {
+    void handleActivity_emptyFileProvided_success() throws WrongQuantityException {
         fruitShopService.handleActivities("src/test/java/core/basesyntax/resources/emptyFile.txt",
                 "src/test/java/core/basesyntax/resources/fruitShopResult.txt");
         List<String> fruitShopResult = Reader.readLines("src/test/java/core/basesyntax/resources/fruitShopResult.txt");
-        List<String> lol = new ArrayList<>();
+
         int actualLineQuantity = fruitShopResult.size();
         int expectedLineQuantity = 0;
-        assertEquals(lol, fruitShopResult);
-//        assertEquals(expectedLineQuantity, actualLineQuantity);
+
+        assertEquals(expectedLineQuantity, actualLineQuantity);
     }
 
     @Test
@@ -85,7 +85,7 @@ class FruitShopServiceTest {
     }
 
     @Test
-    void handleActivity_rightDataProvided() throws WrongQuantityException {
+    void handleActivity_rightDataProvided_success() throws WrongQuantityException {
         fruitShopService.handleActivities("src/test/java/core/basesyntax/resources/activitiesStore.txt",
                 "src/test/java/core/basesyntax/resources/fruitShopResult.txt");
 
