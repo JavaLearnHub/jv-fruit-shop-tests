@@ -9,8 +9,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class WriterTest {
 
-    private static final String WRITER_RESULT_PATH = "src/test/java/core/basesyntax/resources/writerResult.txt";
-    private static final String WRONG_PATH = "src/test/java/core/basesyntax/resources";
+    private static final String WRITER_RESULT_PATH = "writerResult.txt";
+    private static final String WRONG_PATH = "";
 
     @Test
     void writeToFile_emptyReportProvided_success() {

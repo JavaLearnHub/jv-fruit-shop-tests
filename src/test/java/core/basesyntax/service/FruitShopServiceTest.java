@@ -25,22 +25,22 @@ class FruitShopServiceTest {
     @Test
     void handleActivity_wrongOperationProvided_failure() {
         assertThrows(UnsupportedOperationException.class, () ->
-                fruitShopService.handleActivities("src/test/java/core/basesyntax/resources/wrongOperation.txt",
-                        "src/test/java/core/basesyntax/resources/fruitShopResult.txt"));
+                fruitShopService.handleActivities("wrongOperation.txt",
+                        "fruitShopResult.txt"));
     }
 
     @Test
     void handleActivity_wrongQuantityProvided_failure() {
         assertThrows(WrongQuantityException.class, () ->
-                fruitShopService.handleActivities("src/test/java/core/basesyntax/resources/wrongQuantity.txt",
-                        "src/test/java/core/basesyntax/resources/fruitShopResult.txt"));
+                fruitShopService.handleActivities("wrongQuantity.txt",
+                        "fruitShopResult.txt"));
     }
 
     @Test
     void handleActivity_emptyFileProvided_success() throws WrongQuantityException {
-        fruitShopService.handleActivities("src/test/java/core/basesyntax/resources/emptyFile.txt",
-                "src/test/java/core/basesyntax/resources/fruitShopResult.txt");
-        List<String> fruitShopResult = Reader.readLines("src/test/java/core/basesyntax/resources/fruitShopResult.txt");
+        fruitShopService.handleActivities("emptyFile.txt",
+                "fruitShopResult.txt");
+        List<String> fruitShopResult = Reader.readLines("fruitShopResult.txt");
 
         int actualLineQuantity = fruitShopResult.size();
         int expectedLineQuantity = 0;
@@ -50,46 +50,46 @@ class FruitShopServiceTest {
 
     @Test
     void handleActivity_wrongWritePathProvided_failure() {
-        assertThrows(FileNotFoundException.class, () -> fruitShopService.handleActivities("src/test/java/core/basesyntax/resources/emptyFile.txt",
+        assertThrows(FileNotFoundException.class, () -> fruitShopService.handleActivities("emptyFile.txt",
                 "src/test/java/core/basesyntax/resources"));
     }
 
     @Test
     void handleActivity_wrongReadPathProvided_failure() {
-        assertThrows(AccessDeniedException.class, () -> fruitShopService.handleActivities("src/test/java/core/basesyntax/resources",
-                "src/test/java/core/basesyntax/resources/fruitShopResult.txt"));
+        assertThrows(AccessDeniedException.class, () -> fruitShopService.handleActivities("",
+                "fruitShopResult.txt"));
     }
 
     @Test
     void handleActivity_notFullElementProvided_failure() {
-        assertThrows(IllegalArgumentException.class, () -> fruitShopService.handleActivities("src/test/java/core/basesyntax/resources/notFullElement.txt",
-                "src/test/java/core/basesyntax/resources/fruitShopResult.txt"));
+        assertThrows(IllegalArgumentException.class, () -> fruitShopService.handleActivities("notFullElement.txt",
+                "fruitShopResult.txt"));
     }
 
     @Test
     void handleActivity_inCorrectElementProvided_failure() {
-        assertThrows(IllegalArgumentException.class, () -> fruitShopService.handleActivities("src/test/java/core/basesyntax/resources/inCorrectElement.txt",
-                "src/test/java/core/basesyntax/resources/fruitShopResult.txt"));
+        assertThrows(IllegalArgumentException.class, () -> fruitShopService.handleActivities("inCorrectElement.txt",
+                "fruitShopResult.txt"));
     }
 
     @Test
     void handleActivity_wrongSeparatorProvided_failure() {
-        assertThrows(IllegalArgumentException.class, () -> fruitShopService.handleActivities("src/test/java/core/basesyntax/resources/wrongSeparator.txt",
-                "src/test/java/core/basesyntax/resources/fruitShopResult.txt"));
+        assertThrows(IllegalArgumentException.class, () -> fruitShopService.handleActivities("wrongSeparator.txt",
+                "fruitShopResult.txt"));
     }
 
     @Test
     void handleActivity_wrongElementProvided_failure() {
-        assertThrows(IllegalArgumentException.class, () -> fruitShopService.handleActivities("src/test/java/core/basesyntax/resources/wrongElement.txt",
-                "src/test/java/core/basesyntax/resources/fruitShopResult.txt"));
+        assertThrows(IllegalArgumentException.class, () -> fruitShopService.handleActivities("wrongElement.txt",
+                "fruitShopResult.txt"));
     }
 
     @Test
     void handleActivity_rightDataProvided_success() throws WrongQuantityException {
-        fruitShopService.handleActivities("src/test/java/core/basesyntax/resources/activitiesStore.txt",
-                "src/test/java/core/basesyntax/resources/fruitShopResult.txt");
+        fruitShopService.handleActivities("activitiesStore.txt",
+                "fruitShopResult.txt");
 
-        List<String> actual = Reader.readLines("src/test/java/core/basesyntax/resources/fruitShopResult.txt");
+        List<String> actual = Reader.readLines("fruitShopResult.txt");
         List<String> expected = new ArrayList<>();
         expected.add("banana,112");
 
