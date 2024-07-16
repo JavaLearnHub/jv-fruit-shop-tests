@@ -11,8 +11,8 @@ import static org.junit.jupiter.api.Assertions.*;
 class ReaderTest {
 
     private static final String WRONG_FILE_PATH = "wrong file path";
-    private static final String EMPTY_FILE = "src/test/java/core/basesyntax/resources/emptyFile.txt";
-    private static final String RIGHT_FORMAT_FILE = "src/test/java/core/basesyntax/resources/activitiesStore.txt";
+    private static final String EMPTY_FILE = "emptyFile.txt";
+    private static final String RIGHT_FORMAT_FILE = "activitiesStore.txt";
 
     @Test
     void getFileRows_wrongFilePath_failure() {

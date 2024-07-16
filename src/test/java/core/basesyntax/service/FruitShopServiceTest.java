@@ -51,7 +51,7 @@ class FruitShopServiceTest {
     @Test
     void handleActivity_wrongWritePathProvided_failure() {
         assertThrows(FileNotFoundException.class, () -> fruitShopService.handleActivities("emptyFile.txt",
-                "src/test/java/core/basesyntax/resources"));
+                ""));
     }
 
     @Test
