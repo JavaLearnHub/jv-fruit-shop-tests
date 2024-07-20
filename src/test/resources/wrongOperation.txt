@@ -1,0 +1,5 @@
+type,fruit,quantity
++,banana,20
+b,apple,100
+-,banana,100
+p,banana,13
